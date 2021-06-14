@@ -3,7 +3,9 @@ FROM ubuntu:latest
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 DEBIAN_FRONTEND=noninteractive
 
 
-RUN useradd -m -s /bin/bash -p abc abc && apt update --fix-missing \
+RUN useradd -m -s /bin/bash -p abc abc \
+    && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt update --fix-missing \
     && apt install -yqq bzip2 ca-certificates apt-utils wget nodejs git ca-certificates \
     && su - abc -c " \
     wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh -O ~/Anaconda_install.sh \
@@ -16,7 +18,7 @@ RUN useradd -m -s /bin/bash -p abc abc && apt update --fix-missing \
     && chmod 777 ~/kite-installer && ~/kite-installer install \
     && rm -rf ~/Anaconda_install.sh \
     " \
-    && apt clean
+    && apt clean 
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
