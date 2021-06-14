@@ -27,4 +27,4 @@ COPY --chown=abc:abc start.sh  /home/abc/
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
-ENTRYPOINT [ "sh -c /home/abc/start.sh" ]
+ENTRYPOINT [ "bash", "-c", "/home/abc/start.sh" ]
