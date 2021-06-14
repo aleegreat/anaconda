@@ -18,7 +18,6 @@ RUN useradd -m -s /bin/bash abc \
     && rm -rf ~/Anaconda_install.sh \
     && wget https://linux.kite.com/linux/current/kite-installer -O ~/kite-installer \
     && chmod 777 ~/kite-installer && ~/kite-installer install \
-    && rm -rf ~/Anaconda_install.sh \
     && /home/abc/Anaconda3/bin/pip install jupyter-kite \
     && /home/abc/Anaconda3/bin/jupyter-labextension install @kiteco/jupyterlab-kite  @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
     " \
