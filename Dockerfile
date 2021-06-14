@@ -23,7 +23,7 @@ RUN useradd -m -s /bin/bash abc \
     && /home/abc/Anaconda3/bin/jupyter-labextension install @kiteco/jupyterlab-kite  @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
     " \
     && apt clean 
-COPY --chmod=777 start.sh /home/abc/
+COPY --chmod=777 start.sh /home/abc/start.sh
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
