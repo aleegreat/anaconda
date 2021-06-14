@@ -22,4 +22,4 @@ RUN useradd -m -s /bin/bash -p abc abc \
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
-CMD ["nohup /home/abc/.local/share/kite/kited &;/bin/bash"]
+CMD ["nohup /home/abc/.local/share/kite/kited ;/bin/bash"]
