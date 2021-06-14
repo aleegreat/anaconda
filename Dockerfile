@@ -23,10 +23,11 @@ RUN useradd -m -s /bin/bash abc \
     && /home/abc/Anaconda3/bin/jupyter-labextension install @kiteco/jupyterlab-kite  @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
     " \
     && apt clean 
-COPY start.sh /home/abc/start.sh
-RUN chmod 777 /home/abc/start.sh
+#COPY start.sh /home/abc/start.sh
+#RUN chmod 777 /home/abc/start.sh
 
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
-ENTRYPOINT [ "bash", "-c", "/home/abc/start.sh" ]
+#ENTRYPOINT [ "bash", "-c", "/home/abc/start.sh" ]
+CMD ["su - abc -c /home/abc/.local/share/kite/kited ; /bin/bash"]
