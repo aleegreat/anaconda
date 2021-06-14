@@ -23,7 +23,8 @@ RUN useradd -m -s /bin/bash abc \
     && /home/abc/Anaconda3/bin/jupyter-labextension install @kiteco/jupyterlab-kite  @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
     " \
     && apt clean 
+ADD start.sh /
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
-CMD ["su - abc -c /home/abc/.local/share/kite/kited ; /bin/bash"]
+ENTRYPOINT ["/start.sh"]
