@@ -1,7 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 DEBIAN_FRONTEND=noninteractive
-
 
 RUN useradd -m -s /bin/bash abc \
     && apt update --fix-missing \
