@@ -27,9 +27,9 @@ RUN useradd -m -s /bin/bash abc \
 #COPY start.sh /home/abc/start.sh
 #RUN chmod 777 /home/abc/start.sh
 
-VOLUME ["/config","/workspace"]
+VOLUME ["/config","/workspace","/home/abc/startup"]
 EXPOSE 8888
 
 CMD [ "/bin/bash" ]
 
-#ENTRYPOINT [ "/home/abc/start.sh" ]
+ENTRYPOINT [ "/home/abc/startup/start.sh" ]
