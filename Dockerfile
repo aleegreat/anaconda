@@ -4,7 +4,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 DEBIAN_FRONTEND=noninteractive
 
 RUN useradd -m -s /bin/bash abc \
     && apt update --fix-missing \
-    && apt install -yqq bzip2 ca-certificates apt-utils curl wget git ca-certificates \
+    && apt install -yqq bzip2 ca-certificates apt-utils curl wget git net-tools ca-certificates \
     && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && apt update \
     && apt install -yqq nodejs \
@@ -20,16 +20,16 @@ RUN useradd -m -s /bin/bash abc \
     && /home/abc/Anaconda3/bin/pip install --upgrade jupyter-kite jupyterlab-git\
     && /home/abc/Anaconda3/bin/jupyter-labextension install @kiteco/jupyterlab-kite  @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
     " \
-    && apt clean
+    && apt autoremove && apt clean && apt autoclean 
 
-WORKDIR /home/abc
+#WORKDIR /home/abc
 
-COPY start.sh /home/abc/start.sh
-RUN chmod 777 /home/abc/start.sh
+#COPY start.sh /home/abc/start.sh
+#RUN chmod 777 /home/abc/start.sh
 
 VOLUME ["/config","/workspace"]
 EXPOSE 8888
 
-#CMD [ "su - abc -c \"/home/abc/.local/share/kite/kited\" ; /bin/bash" ]
+CMD [ "/bin/bash" ]
 
-ENTRYPOINT [ "/home/abc/start.sh" ]
+#ENTRYPOINT [ "/home/abc/start.sh" ]
