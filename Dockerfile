@@ -32,4 +32,4 @@ EXPOSE 8888
 
 CMD [ "/bin/bash" ]
 
-ENTRYPOINT [ "/home/abc/startup/start.sh" ]
+#ENTRYPOINT [ "/home/abc/startup/start.sh" ]
