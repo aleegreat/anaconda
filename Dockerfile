@@ -18,7 +18,7 @@ RUN useradd -m -s /bin/bash abc \
     && wget https://linux.kite.com/linux/current/kite-installer -O ~/kite-installer \
     && chmod 777 ~/kite-installer && ~/kite-installer install \
     && /home/abc/Anaconda3/bin/pip install --upgrade 'jupyterlab-kite>=2.0.2' jupyterlab-git\
-    && /home/abc/Anaconda3/bin/jupyter-labextension install @kiteco/jupyterlab-kite  @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
+    && /home/abc/Anaconda3/bin/jupyter-labextension install @jupyterlab/debugger  jupyterlab-spreadsheet @jupyterlab/git @jupyterlab/toc \
     " \
     && apt autoremove && apt clean && apt autoclean 
 
